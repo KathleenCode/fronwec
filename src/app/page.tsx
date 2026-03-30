@@ -1,65 +1,58 @@
-import Image from "next/image";
+import EquityCanvas from "@/components/EquityScene";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    /* Changed to a fixed height with a max-limit to keep it compact */
+    <main className="flex h-screen max-h-[750px] min-h-[600px] flex-col bg-[#020205] text-white overflow-hidden selection:bg-cyan-500/30">
+      <style dangerouslySetInnerHTML={{ __html: `
+        .text-shimmer {
+          background: linear-gradient(90deg, #22d3ee, #fff, #22d3ee);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmer 5s linear infinite;
+        }
+        @keyframes shimmer { to { background-position: 200% center; } }
+        .compact-glass {
+          background: rgba(255, 255, 255, 0.02);
+          backdrop-blur: 8px;
+          border-left: 2px solid #ec4899;
+        }
+      `}} />
+
+      <div className="flex-grow flex relative">
+        {/* COMPACT OVERLAY */}
+        <div className="absolute top-0 left-0 h-full w-full md:w-[35%] lg:w-[30%] z-20 p-8 md:p-12 flex flex-col justify-center pointer-events-none">
+          <div className="mb-6 pointer-events-auto"> 
+            <h1 className="text-3xl md:text-4xl font-black tracking-tight uppercase leading-tight">
+              <span className="text-shimmer block">REDEFINING</span>
+              <span className="text-zinc-500 tracking-[-0.02em]">ACCESS</span>
+            </h1>
+          </div>
+          
+          <div className="transform -rotate-[8deg] origin-left pointer-events-auto max-w-[260px]">
+            <div className="compact-glass p-5 shadow-2xl">
+              <p className="font-serif text-sm leading-relaxed text-zinc-400 italic">
+                "To build a gate is human, but to build a stair is divine. 
+                Height is not a gift of birth, but a song sung by the supports we lend."
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* THE ART (Matched to container height) */}
+        <div className="w-full h-full">
+           <EquityCanvas />
+           <div className="absolute inset-0 bg-gradient-to-r from-[#020205] via-[#020205]/20 to-transparent z-10 pointer-events-none" />
         </div>
-      </main>
-    </div>
+      </div>
+
+      <footer className="relative z-30 p-4 border-t border-white/5 bg-black/40 backdrop-blur-md flex justify-between items-center px-10">
+        <p className="text-[9px] font-mono tracking-[0.3em] text-zinc-600 uppercase">Logic: Support &gt; Equality</p>
+        <div className="h-1 w-12 bg-zinc-800 rounded-full overflow-hidden">
+          <div className="h-full w-1/2 bg-cyan-500 animate-pulse" />
+        </div>
+      </footer>
+    </main>
   );
 }

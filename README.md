@@ -1,3 +1,38 @@
+# 🚀 Project: Building the Box (WeCoded 2026)
+
+An interactive 3D exploration of **Gender Equity in Tech**, built for the **2026 WeCoded Challenge**. This project visualizes the structural difference between equality and equity through a modern, technical lens.
+
+## 🎨 The Metaphor: Equality vs. Equity
+
+In this scene, I’ve translated a classic social metaphor into a 3D digital environment:
+
+- **The Barrier (Cyan Wireframe):** Represents the systemic hurdles and "fences" present in the tech industry.
+
+- **Equality (Left Figure):** Shows that providing the same resources to everyone doesn't account for different starting positions.
+
+- **Equity (Right Figure & Pink Box):** Demonstrates how targeted support—"Building the Box"—enables everyone to reach the same height of opportunity.
+
+## 🛠️ Tech Stack
+
+This project leverages a modern, high-performance developer stack:
+
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+
+- **3D Engine:** [Three.js](https://threejs.org/) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+
+- **Component Library:** [@react-three/drei](https://github.com/pmnd.rs/drei)
+
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+
+- **Deployment:** [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone [https://github.com/your-username/wecoded-equity.git](https://github.com/your-username/wecoded-equity.git)
+cd wecoded-equity
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
